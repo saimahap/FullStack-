@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Git Learning Page</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    margin: 30px;
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+}
+
+.box {
+    background: #ffffff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.output {
+    margin-top: 10px;
+    background: #f0f0f0;
+    padding: 8px;
+    font-family: monospace;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Learning Git & GitHub Step by Step</h1>
+
+<div class="box">
+<h3>Step 1: Start a New Git Project</h3>
+<p>First, we create a new Git repository using:</p>
+<p><b>git init</b></p>
+<button onclick="step1()">Try it</button>
+<div class="output" id="result1"></div>
+</div>
+
+<div class="box">
+<h3>Step 2: Save Our Work</h3>
+<p>Now we add files and save them with a commit:</p>
+<p><b>git add .</b><br>
+<b>git commit -m "My first commit"</b></p>
+<button onclick="step2()">Try it</button>
+<div class="output" id="result2"></div>
+</div>
+
+<div class="box">
+<h3>Step 3: Upload to GitHub</h3>
+<p>We send our project to GitHub using:</p>
+<p><b>git push origin main</b></p>
+<button onclick="step3()">Try it</button>
+<div class="output" id="result3"></div>
+</div>
+
+<div class="box">
+<h3>Step 4: Create a New Branch</h3>
+<p>To work on a new feature safely:</p>
+<p><b>git checkout -b feature</b></p>
+<button onclick="step4()">Try it</button>
+<div class="output" id="result4"></div>
+</div>
+
+<div class="box">
+<h3>Step 5: Merge the Branch</h3>
+<p>After finishing the feature, we merge it back:</p>
+<p><b>git merge feature</b></p>
+<button onclick="step5()">Try it</button>
+<div class="output" id="result5"></div>
+</div>
+
+<div class="box">
+<h3>Step 6: Update Our Project</h3>
+<p>To get the latest changes from GitHub:</p>
+<p><b>git pull origin main</b></p>
+<button onclick="step6()">Try it</button>
+<div class="output" id="result6"></div>
+</div>
+
+<script>
+function step1() {
+document.getElementById("result1").innerText =
+"Great! Your Git repository has been created.";
+}
+
+function step2() {
+document.getElementById("result2").innerText =
+"Nice! Your changes have been saved with a commit.";
+}
+
+function step3() {
+document.getElementById("result3").innerText =
+"Awesome! Your project is now on GitHub.";
+}
+
+function step4() {
+document.getElementById("result4").innerText =
+"Good job! You are now working on a new branch.";
+}
+
+function step5() {
+document.getElementById("result5").innerText =
+"Perfect! Your branch has been merged into main.";
+}
+
+function step6() {
+document.getElementById("result6").innerText =
+"Done! Your project is updated with the latest changes.";
+}
+</script>
+
+</body>
+</html>
