@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Event Handling</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 8px 12px;
+            margin: 10px;
+        }
+
+        #box {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 20px auto;
+            line-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>JavaScript Event Handling</h2>
+
+    <button onclick="showMessage()">Click Me</button>
+
+   
+    <div id="box" onmouseover="hoverOn()" onmouseout="hoverOff()">
+        Hover Over Me
+    </div>
+
+    
+    <input type="text" onkeypress="keyPressed()" placeholder="Type something">
+
+    
+    <form onsubmit="submitForm(event)">
+        <br><br>
+        <input type="text" placeholder="Enter your name" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="output"></p>
+
+<script>
+
+
+    function showMessage() {
+        document.getElementById("output").innerText = "Button Clicked!";
+    }
+
+    function hoverOn() {
+        document.getElementById("box").style.backgroundColor = "yellow";
+    }
+
+    function hoverOff() {
+        document.getElementById("box").style.backgroundColor = "lightblue";
+    }
+
+    function keyPressed() {
+        document.getElementById("output").innerText = "Key Pressed!";
+    }
+
+   
+    function submitForm(event) {
+        event.preventDefault(); 
+        document.getElementById("output").innerText = "Form Submitted Successfully!";
+    }
+
+</script>
+
+</body>
+</html>
