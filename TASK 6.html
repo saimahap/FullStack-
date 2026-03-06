@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Creative Form Validation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .card {
+      width: 350px;
+      padding: 30px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      color: white;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      outline: none;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    input:focus {
+      box-shadow: 0 0 8px #fff;
+    }
+
+    .error {
+      font-size: 12px;
+      color: #ffdddd;
+      margin-top: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #764ba2;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #f1f1f1;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Create Account</h2>
+
+    <form onsubmit="return validateForm()">
+      
+      <div class="input-group">
+        <input type="text" id="name" placeholder="Full Name">
+        <div id="nameError" class="error"></div>
+      </div>
+
+      <div class="input-group">
+        <input type="text" id="email" placeholder="Email Address">
+        <div id="emailError" class="error"></div>
+      </div>
+
+      <div class="input-group">
+        <input type="password" id="password" placeholder="Password">
+        <div id="passwordError" class="error"></div>
+      </div>
+
+      <div class="input-group">
+        <input type="password" id="confirmPassword" placeholder="Confirm Password">
+        <div id="confirmPasswordError" class="error"></div>
+      </div>
+
+      <button type="submit">Register</button>
+
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      let isValid = true;
+
+      // Clear previous errors
+      document.querySelectorAll(".error").forEach(e => e.innerHTML = "");
+
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let password = document.getElementById("password").value;
+      let confirmPassword = document.getElementById("confirmPassword").value;
+
+      let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+      if (name === "" || name.length < 3) {
+        document.getElementById("nameError").innerHTML = "Enter at least 3 characters.";
+        isValid = false;
+      }
+
+      if (!email.match(emailPattern)) {
+        document.getElementById("emailError").innerHTML = "Enter a valid email.";
+        isValid = false;
+      }
+
+      if (password.length < 6) {
+        document.getElementById("passwordError").innerHTML = "Minimum 6 characters required.";
+        isValid = false;
+      }
+
+      if (password !== confirmPassword) {
+        document.getElementById("confirmPasswordError").innerHTML = "Passwords do not match.";
+        isValid = false;
+      }
+
+      return isValid;
+    }
+  </script>
+
+</body>
+</html>
