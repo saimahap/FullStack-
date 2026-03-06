@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RoyalTime Watches</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: gold;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .card {
+            background-color: white;
+            width: 300px;
+            margin: 30px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        #offerBox {
+            background-color: orange;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>RoyalTime Watches</header>
+
+<div class="card">
+    <h3 id="productName">Diamond Edge Luxury Watch</h3>
+    <p id="description">Elegant gold-plated watch with sapphire glass protection.</p>
+    <p id="price">Price: ₹8,999</p>
+    <div id="offerBox">Special 25% OFF</div>
+</div>
+
+<button onclick="changeProduct()">Change Product</button>
+<button onclick="changePrice()">Update Price</button>
+<button onclick="highlightOffer()">Highlight Offer</button>
+<button onclick="toggleOffer()">Hide/Show Offer</button>
+<button onclick="addReview()">Add Customer Review</button>
+
+<div id="reviews"></div>
+
+<script>
+    function changeProduct() {
+        document.getElementById("productName").innerText = "Midnight Blue Chronograph";
+        document.getElementById("description").innerText =
+            "Premium steel body with water resistance up to 50m.";
+    }
+
+    function changePrice() {
+        document.getElementById("price").innerText =
+            "Price: ₹6,499 (Festival Offer)";
+    }
+
+    function highlightOffer() {
+        document.getElementById("offerBox").style.backgroundColor = "yellow";
+    }
+
+    function toggleOffer() {
+        let box = document.getElementById("offerBox");
+        box.style.display = (box.style.display === "none") ? "block" : "none";
+    }
+
+    function addReview() {
+        document.getElementById("reviews").innerHTML +=
+            "<p><b>Customer Review:</b> Stunning design! ⭐⭐⭐⭐⭐</p>";
+    }
+</script>
+
+</body>
+</html>
